@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "blog_posts#index"
 
-  resources :blog_posts
+  resources :blog_posts do
+    resources :cover_image, only: [:destroy], module: :blog_posts
+  end
 
   
 end
