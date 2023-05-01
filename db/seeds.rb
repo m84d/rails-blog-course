@@ -11,3 +11,11 @@
         password: "password",
         password_confirmation: "password"
     )
+
+    100.times do |i|
+        post = BlogPost.where(title: "Blog Post #{i}").first_or_initialize
+        post.update!(
+            content: "Hello World (x#{i})", 
+            published_at: Time.current
+        )
+    end
